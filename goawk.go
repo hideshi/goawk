@@ -11,11 +11,11 @@ import (
 )
 
 type App struct {
-	Filename string
-	Fs       string
-	S        []string
-	VS       map[string]string
-	VI       map[string]int
+	Filename string // Input file name
+	Fs       string // Field separator
+	S        []string // Input line
+	VS       map[string]string // Variables for string value
+	VI       map[string]int // Variables for int value
 }
 
 type Action func(app *App)
