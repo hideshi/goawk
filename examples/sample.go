@@ -8,13 +8,13 @@ import (
 )
 
 func Begin(app *goawk.App) {
-	fmt.Println("Beginを実行します。")
+	fmt.Println("Execute Begin")
 	fmt.Println(app.Filename)
 }
 
 func Action1(app *goawk.App) {
-	fmt.Println("Action1を実行します。")
-	fmt.Println("入力は１行ごとに処理され、文字列はフィールドセパレータで分割されます。")
+	fmt.Println("Execute Action1")
+	fmt.Println("Input file is processed one by one per line, then the text is splitted with field separator")
 	for _, elem := range app.S[1:] {
 		fmt.Printf("%#v\n", elem)
 		v, err := strconv.Atoi(elem)
@@ -27,17 +27,17 @@ func Action1(app *goawk.App) {
 }
 
 func Action2(app *goawk.App) {
-	fmt.Println("Action2を実行します。")
+	fmt.Println("Execute Action2")
 	pattern := ".*20.*"
 	matched, _ := regexp.MatchString(pattern, app.S[0])
 	if matched == true {
-		fmt.Printf("%sが%sのパターンにマッチしました。\n", app.S[0], pattern)
+		fmt.Printf("The text %s matched with the patten %s\n", app.S[0], pattern)
 	}
 }
 
 func End(app *goawk.App) {
-	fmt.Println("Endを実行します。")
-	fmt.Printf("合計は%dです。\n", app.VI["sum"])
+	fmt.Println("Execute End")
+	fmt.Printf("Sum of the input is %d\n", app.VI["sum"])
 }
 
 func main() {
