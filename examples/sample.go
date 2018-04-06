@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/hideshi/goawk"
-	"regexp"
 	"strconv"
 )
 
@@ -28,8 +27,8 @@ func Action1(app *goawk.App) {
 
 func Action2(app *goawk.App) {
 	fmt.Println("Execute Action2")
-	pattern := ".*20.*"
-	matched, _ := regexp.MatchString(pattern, app.S[0])
+    pattern := ".*20.*"
+	matched, _ := app.P(pattern)
 	if matched == true {
 		fmt.Printf("The text %s matched with the patten %s\n", app.S[0], pattern)
 	}

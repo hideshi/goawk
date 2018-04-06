@@ -8,6 +8,7 @@ import (
 	"reflect"
 	"runtime"
 	"strings"
+	"regexp"
 )
 
 type App struct {
@@ -67,4 +68,8 @@ func (app *App) Run(actions []Action) {
 	}
 
 	endAction(app)
+}
+
+func (app *App) P(pattern string) (bool, error) {
+    return regexp.MatchString(pattern, app.S[0])
 }
