@@ -1,0 +1,7 @@
+Banana
+Apple
+Pineapple
+Apple
+Orange
+Banana
+Banana
